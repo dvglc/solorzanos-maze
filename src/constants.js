@@ -1,0 +1,10 @@
+const constants = {
+    MOVE_FRAGMENT: "MOVE_FRAGMENT",
+    MSG_UNMOVABLE_FRAGMENT: "MSG_UNMOVABLE_FRAGMENT",
+    GRID_ROWS: 4,
+    GRID_COLUMNS: 4,
+    GRID_HEIGHT: 600,
+    GRID_WIDTH: 500
+}
+
+export default constants

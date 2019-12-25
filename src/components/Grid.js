@@ -12,5 +12,3 @@ const Grid = ({store}) =>
 
 
 export default Grid
-
-// https://stackoverflow.com/questions/2296097/making-an-svg-image-object-clickable-with-onclick-avoiding-absolute-positioning

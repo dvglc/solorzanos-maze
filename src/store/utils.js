@@ -12,6 +12,7 @@
 export const shuffleFragmentsPositions = (fragments) => {
     let newPositions = generateRandomPositions(4,4)
     return fragments.map((f, i) => {
+        console.log('Assigning position ' + JSON.stringify(newPositions[i]) + ' to fragment ' + f.id)
         f.position = newPositions[i]
         return f
     })

@@ -12,7 +12,8 @@ const gridC = {
 
 const fragmentC = {
     FRAGMENT_WIDTH: (100 / gridC.GRID_COLUMNS).toString() + '%',
-    FRAGMENT_HEIGHT: (100 / gridC.GRID_ROWS).toString() + '%'
+    FRAGMENT_HEIGHT: (100 / gridC.GRID_ROWS).toString() + '%',
+    BLANK_FRAGMENT: '4d'
 }
 
 const constants = {

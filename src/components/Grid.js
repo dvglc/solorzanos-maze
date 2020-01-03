@@ -9,7 +9,8 @@ const Grid = ({store}) => {
 
     return (
         <div className="grid">
-            <svg width={C.GRID_WIDTH} height={C.GRID_HEIGHT} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">  
+            <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
+                width={C.GRID_WIDTH} height={C.GRID_HEIGHT} viewBox={'0 0 ' + C.GRID_COLUMNS + ' ' + C.GRID_ROWS}>  
                 {
                 store.getState().fragments
                     .filter(f => f.id !== C.BLANK_FRAGMENT)

@@ -4,15 +4,13 @@ const actionC = {
 }
 
 const gridC = {
-    GRID_ROWS: 4,
-    GRID_COLUMNS: 4,
+    GRID_ROWS: '4',
+    GRID_COLUMNS: '4',
     GRID_HEIGHT: 600,
-    GRID_WIDTH: 500
+    GRID_WIDTH: 600
 }
 
 const fragmentC = {
-    FRAGMENT_WIDTH: (100 / gridC.GRID_COLUMNS).toString() + '%',
-    FRAGMENT_HEIGHT: (100 / gridC.GRID_ROWS).toString() + '%',
     BLANK_FRAGMENT: '4d'
 }
 

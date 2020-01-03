@@ -25,7 +25,7 @@ const saver = store => next => action => {
 
 // when initializing, explicitly set local storage to stateData, otherwise position fields might have values from previous runs;
 // alternatively we could also tell the browser to flush its cache when a new store is factored
-localStorage['redux-store'] = JSON.stringify(stateData)
+localStorage['redux-store'] = JSON.stringify(stateData) //TODO make this part of storeFactory() for reshuffling 
 const storeFactory = (initialState=stateData) =>
     applyMiddleware(logger, saver)(createStore)(
         combineReducers({fragments, blank}),

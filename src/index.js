@@ -6,7 +6,7 @@ import App from './components/App';
 import storeFactory from './store'
 
 
-const store = storeFactory() // storeFactory(true) ?
+export const store = storeFactory() // storeFactory(true) ?
 
 const render = () =>
     ReactDOM.render(

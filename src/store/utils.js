@@ -28,8 +28,8 @@ export const shuffleFragmentsPositions = (fragments) => {
 const generateRandomPositions = (x, y) => {
     // initialize positions...
     let positions = []
-    for (let i=1; i<=x; i++) {
-        for (let j=1; j<=y; j++) {
+    for (let i=0; i<x; i++) {
+        for (let j=0; j<y; j++) {
             positions.push({row: i, col: j})
         }
     }

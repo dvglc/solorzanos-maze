@@ -1,15 +1,23 @@
 import C from '../constants'
+import { isMovable } from './utils'
 
 export const fragment = (state={}, action) => {
     switch (action.type) {
         case C.MOVE_FRAGMENT:
-            return (state.id !== action.id) ?
-                state :
+            return (state.id === action.id) ?
+                {
+                    ...state,
+                    position: action.toPosition,
+                    timestamp: action.timestamp
+                } : (isMovable(state.position, action.fromPosition)) ?
                     {
                         ...state,
-                        targetPosition: action.position,
-                        timestamp: action.timestamp
-                    }
+                        movable: true
+                    } :
+                        {
+                            ...state,
+                            movable: false
+                        }
         default: 
             return state 
     }
@@ -29,7 +37,10 @@ export const fragments = (state=[], action) => {
 export const blank = (state={}, action) => {
     switch (action.type) {
         case C.MOVE_FRAGMENT:
-            return action.newBlank
+            return {
+                ...state,
+                position: action.fromPosition
+            }
         default: 
             return state 
     }

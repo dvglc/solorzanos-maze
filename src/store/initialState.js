@@ -1,4 +1,4 @@
-import { shuffleFragmentsPositions } from './utils'
+import { shuffleFragmentsPositions, getBlankFragment, isMovable } from './utils'
 
 const rawFragments = [
     {
@@ -67,12 +67,17 @@ const rawFragments = [
     }
 ]
 
-const stateData = {
-    fragments: shuffleFragmentsPositions(rawFragments),
-    blank: {
-        row: 1,
-        col: 1
+
+export const initializeState = () => {
+    const positionedFragments = shuffleFragmentsPositions(rawFragments)
+    const blankFragment = getBlankFragment(positionedFragments)
+    return {
+        fragments: positionedFragments
+            .filter(f => f.id !== blankFragment.id)
+            .map(f => ({
+                ...f,
+                movable: isMovable(f.position, blankFragment.position)
+            })),
+        blank: blankFragment
     }
 }
-
-export default stateData

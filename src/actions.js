@@ -1,5 +1,6 @@
 import C from './constants'
 import { isMovable } from './store/utils'
+import { store } from './index'
 
 
 /**

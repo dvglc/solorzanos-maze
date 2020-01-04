@@ -11,7 +11,7 @@ const gridC = {
 }
 
 const fragmentC = {
-    BLANK_FRAGMENT: '4d'
+    BLANK_FRAGMENT_ID: '4d'
 }
 
 const constants = {

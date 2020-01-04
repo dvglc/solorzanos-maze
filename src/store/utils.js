@@ -1,3 +1,4 @@
+import C from '../constants'
 
 /**
  * Util Functions
@@ -42,12 +43,18 @@ const generateRandomPositions = (x, y) => {
 
 
 /**
- * Checks whether a fragment can be moved. A fragment can be moved exactly when it is next to a target (empty) field on the grid. 
+ * Checks whether a fragment can be moved based on its current position and a target position. 
+ * A fragment can be moved exactly when it is next to a target (empty) field on the grid. 
  * @param {Object} currentPos the current position of the fragment
- * @param {Object} targetPos the position of the target field on the grid
+ * @param {Object} targetPos the position of the target (i.e., empty) field on the grid
  */
 export const isMovable = (currentPos, targetPos) => {
-    let possibleRows = [currentPos.row - 1, currentPos.row + 1]
-    let possibleCols = [currentPos.col - 1, currentPos.col + 1]
-    return possibleRows.includes(targetPos.row) && possibleCols.includes(targetPos.col)
+    return (currentPos.col === targetPos.col && [currentPos.row - 1, currentPos.row + 1].includes(targetPos.row)) || 
+        (currentPos.row === targetPos.row && [currentPos.col - 1, currentPos.col + 1].includes(targetPos.col))
 }
+
+/**
+ * From an array of fragments, returns the fragment determined as "blank". 
+ * @param {Array} fragments The fragments to be filtered 
+ */
+export const getBlankFragment = (fragments) => fragments.filter(f => f.id === C.BLANK_FRAGMENT_ID)[0]

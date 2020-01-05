@@ -1,0 +1,14 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2;
+    font-weight: bold;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;  
+}
+
+.Header > div {
+    padding: 0.5em;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+}

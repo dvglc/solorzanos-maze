@@ -37,7 +37,7 @@ const Fragment = ({store, fragment}) => {
     //     + " at @x=" + fragment.position.col + " and @y=" + fragment.position.row)
 
     return (
-        <g className="fragment">
+        <g className="Fragment">
             <image href={image} x={fragment.position.col} y={fragment.position.row} width="1" height="1"/>
             <rect x={fragment.position.col} y={fragment.position.row} width="1" height="1" 
                 style={_style} onMouseOver={highlight} onMouseOut={lowlight} onClick={requestMove} />

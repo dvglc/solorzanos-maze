@@ -1,6 +1,7 @@
 import React from 'react'
 import Fragment from './Fragment'
 import C from '../constants'
+import './Grid.css'
 
 
 const Grid = ({store}) => {
@@ -15,7 +16,7 @@ const Grid = ({store}) => {
     } 
     
     return (
-        <div className="grid">
+        <div className="Grid">
             <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
                 width={C.GRID_WIDTH} height={C.GRID_HEIGHT} viewBox={'0 0 ' + C.GRID_COLUMNS + ' ' + C.GRID_ROWS}>  
                 {
@@ -25,8 +26,6 @@ const Grid = ({store}) => {
         </div>
     )
 }
-    
-
 
 
 export default Grid

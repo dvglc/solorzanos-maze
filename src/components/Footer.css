@@ -1,0 +1,15 @@
+.Footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;  
+}
+
+.Footer > div {
+    padding: 0.2em;
+    font-size: 0.9em;
+}
+
+.about {
+    font-style: italic;
+}

@@ -6,12 +6,12 @@ import App from './components/App';
 import storeFactory from './store'
 
 
-export const store = storeFactory() // storeFactory(true) ?
+export const store = storeFactory()
 
 const render = () =>
     ReactDOM.render(
         <App store={store}/>, 
-        document.getElementById('root') // change this to actual container id
+        document.getElementById('root') // TODO change this to actual container id
     )  
 
 store.subscribe(render) // render() will be invoked on every state change

@@ -1,7 +1,7 @@
 .Header {
     display: flex;
     justify-content: space-between;
-    font-size: 1.2;
+    font-size: 1.1em;
     font-weight: bold;
     padding-top: 0.2em;
     padding-bottom: 0.2em;  

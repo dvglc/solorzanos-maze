@@ -4,6 +4,7 @@ import {
     isMovable, 
     positionsEqual } 
 from './utils'
+import C from '../constants'
 
 const rawFragments = [
     {
@@ -159,4 +160,43 @@ export const initializeState = () => {
             correctFragments: fullFragments.filter(f => f.correct).length
         }
     }
+}
+
+/**
+ * For use in developer mode: initializes fragments in a way that all fragments but one are already in their final position.
+ * Returns an object including the initialized fragments and the blank fragment ( {fragments: ..., blank: ...} ), but no status information.
+ */
+export const initializeDevFragmentsAndBlank = () => {
+    // select and set one specific fragment to an incorrect position:
+    const incorrectFragmentId = '3d'
+    const incorrectFragment = {
+        ...rawFragments.filter(f => f.id === incorrectFragmentId)[0],
+        position: {
+            row: 3,
+            col: 3
+        },
+        movable: true,
+        correct: false
+    } 
+    const blankFragment = {
+        id: C.BLANK_FRAGMENT_ID,
+        position: {
+            row: 2,
+            col: 3
+        }
+    }
+    const positionedFragments = rawFragments.filter(f => f.id !== incorrectFragmentId && f.id !== C.BLANK_FRAGMENT_ID)
+        .map(f => ({
+            ...f,
+            position: f.finalPosition,
+            movable: isMovable(f.finalPosition, blankFragment.position),
+            correct: true
+        }))
+    return ({
+        fragments: [
+            ...positionedFragments,
+            ...[incorrectFragment]
+        ],
+        blank: blankFragment
+    })
 }

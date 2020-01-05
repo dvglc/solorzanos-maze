@@ -1,7 +1,7 @@
 import C from './constants'
 import { store } from './index'
 import { positionsEqual } from './store/utils'
-import { initializeState } from './store/initialState'
+import { initializeState, initializeDevFragmentsAndBlank } from './store/initialState'
 
 
 /**
@@ -34,3 +34,13 @@ export const restartGame = () => ({
     newState: initializeState(),
     timestamp: new Date().toString()
 })
+
+/**
+ * Enables the developer mode, in which only one fragment needs to be moved to win the game.
+ * This facilitates the development and debugging of the end of the game (and also makes it possible to cheat ;-) ) . 
+ */
+export const enableDevMode = () => ({
+    type: C.ENABLE_DEV_MODE,
+    newFragmentsAndBlank: initializeDevFragmentsAndBlank(),
+    timestamp: new Date().toString()
+}) 

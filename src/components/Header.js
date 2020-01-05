@@ -10,7 +10,7 @@ const Header = ({store}) => {
     return (
         <div className="Header">
             <div className="moves">Moves: {moves}</div>
-            <div className="correct" style={{color: (correctFragments > 0) ? 'green' : 'black'}}>Correctly positioned fragments: {correctFragments}</div>
+            <div className="correct" style={{color: (correctFragments > 0) ? 'green' : 'black'}}>Correctly positioned fragments: {correctFragments}/15</div>
             <button onClick={() => store.dispatch(restartGame())}>NEW GAME!</button>
         </div>
     )

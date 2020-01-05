@@ -20,8 +20,6 @@ export const fragment = (state={}, action) => {
                             ...state,
                             movable: false
                         }
-        case C.RESTART_GAME:
-            return state
         default: 
             return state 
     }
@@ -35,6 +33,10 @@ export const fragments = (state=[], action) => {
             )
         case C.RESTART_GAME:
             return action.newState.fragments.map(
+                f => fragment(f, action)
+            )
+        case C.ENABLE_DEV_MODE:
+            return action.newFragmentsAndBlank.fragments.map(
                 f => fragment(f, action)
             )
         default:
@@ -51,6 +53,8 @@ export const blank = (state={}, action) => {
             }
         case C.RESTART_GAME:
             return action.newState.blank
+        case C.ENABLE_DEV_MODE:
+            return action.newFragmentsAndBlank.blank
         default: 
             return state 
     }
@@ -72,7 +76,12 @@ export const status = (state={}, action) => {
             }
         case C.RESTART_GAME:
             return action.newState.status
-        default:
+        case C.ENABLE_DEV_MODE:
+            return {
+                ...state,
+                correctFragments: 14
+            }
+            default:
             return state
     }
 }

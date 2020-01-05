@@ -1,6 +1,6 @@
 const actionC = {
     MOVE_FRAGMENT: "MOVE_FRAGMENT",
-    MSG_UNMOVABLE_FRAGMENT: "MSG_UNMOVABLE_FRAGMENT"
+    MISCLICK: "MISCLICK"
 }
 
 const gridC = {

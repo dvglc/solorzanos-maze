@@ -53,8 +53,13 @@ export const status = (state={}, action) => {
             const correctFs = (action.toCorrectPosition) ? 1 : (action.fromCorrectPosition) ? -1 : 0   
             return {
                 ...state,
-                moves: state.moves++,
+                moves: state.moves + 1,
                 correctFragments: state.correctFragments + correctFs
+            }
+        case C.MISCLICK:
+            return {
+                ...state,
+                misclicks: state.misclicks + 1
             }
         default:
             return state

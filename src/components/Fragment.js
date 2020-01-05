@@ -1,12 +1,17 @@
 import React from 'react'
-import {moveFragment} from '../actions'
+import {moveFragment, misclick} from '../actions'
 
 const Fragment = ({store, fragment}) => {
 
     const requestMove = e => {
         e.preventDefault()
-        if (fragment.movable) store.dispatch(moveFragment(fragment)) 
-        else alert('Fragment is not movable!')
+        if (fragment.movable) {
+            store.dispatch(moveFragment(fragment))
+        }  
+        else {
+            store.dispatch(misclick())
+            alert('Fragment is not movable!')
+        } 
     }
 
     let _style = {
@@ -15,7 +20,8 @@ const Fragment = ({store, fragment}) => {
     }
 
     const highlight = e => {
-        fragment.movable ? e.target.style.fill="blue" : e.target.style.fill="red" 
+        if (fragment.movable) e.target.style.fill="blue" 
+        else e.target.style.fill="red" 
         e.target.style.fillOpacity = 0.25
     }
     const lowlight = e => {

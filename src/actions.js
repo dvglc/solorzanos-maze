@@ -17,6 +17,9 @@ export const moveFragment = (fragment) => ({
     timestamp: new Date().toString()
 })
 
-
-// use old target from state as position, like so:
-// store.dispatch( moveFragment(id, store.getState().target) )
+/**
+ * Creates an action representing a misclick.
+ */
+export const misclick = () => ({
+    type:C.MISCLICK
+})

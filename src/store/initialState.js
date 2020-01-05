@@ -155,7 +155,7 @@ export const initializeState = () => {
         blank: blankFragment,
         status: {
             moves: 0,
-            missclicks: 0,
+            misclicks: 0,
             correctFragments: fullFragments.filter(f => f.correct).length
         }
     }

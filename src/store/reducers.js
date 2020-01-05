@@ -1,6 +1,7 @@
 import C from '../constants'
 import { isMovable, positionsEqual } from './utils'
 
+
 export const fragment = (state={}, action) => {
     switch (action.type) {
         case C.MOVE_FRAGMENT:
@@ -19,6 +20,8 @@ export const fragment = (state={}, action) => {
                             ...state,
                             movable: false
                         }
+        case C.RESTART_GAME:
+            return state
         default: 
             return state 
     }
@@ -28,6 +31,10 @@ export const fragments = (state=[], action) => {
     switch (action.type) {
         case C.MOVE_FRAGMENT:
             return state.map(
+                f => fragment(f, action)
+            )
+        case C.RESTART_GAME:
+            return action.newState.fragments.map(
                 f => fragment(f, action)
             )
         default:
@@ -42,6 +49,8 @@ export const blank = (state={}, action) => {
                 ...state,
                 position: action.fromPosition
             }
+        case C.RESTART_GAME:
+            return action.newState.blank
         default: 
             return state 
     }
@@ -61,6 +70,8 @@ export const status = (state={}, action) => {
                 ...state,
                 misclicks: state.misclicks + 1
             }
+        case C.RESTART_GAME:
+            return action.newState.status
         default:
             return state
     }

@@ -1,6 +1,7 @@
 const actionC = {
     MOVE_FRAGMENT: "MOVE_FRAGMENT",
-    MISCLICK: "MISCLICK"
+    MISCLICK: "MISCLICK",
+    RESTART_GAME: "RESTART_GAME"
 }
 
 const gridC = {

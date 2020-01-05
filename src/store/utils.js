@@ -53,8 +53,17 @@ export const isMovable = (currentPos, targetPos) => {
         (currentPos.row === targetPos.row && [currentPos.col - 1, currentPos.col + 1].includes(targetPos.col))
 }
 
+
 /**
  * From an array of fragments, returns the fragment determined as "blank". 
  * @param {Array} fragments The fragments to be filtered 
  */
 export const getBlankFragment = (fragments) => fragments.filter(f => f.id === C.BLANK_FRAGMENT_ID)[0]
+
+
+/**
+ * Checks whether two positions are equal (i.e., have identical values for "row" and "col").
+ * @param {Object} position1 The first position
+ * @param {Object} position2 The second position
+ */
+export const positionsEqual = (position1, position2) => JSON.stringify(position1) === JSON.stringify(position2)

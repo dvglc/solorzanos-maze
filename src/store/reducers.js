@@ -1,5 +1,5 @@
 import C from '../constants'
-import { isMovable } from './utils'
+import { isMovable, positionsEqual } from './utils'
 
 export const fragment = (state={}, action) => {
     switch (action.type) {
@@ -8,6 +8,7 @@ export const fragment = (state={}, action) => {
                 {
                     ...state,
                     position: action.toPosition,
+                    correct: positionsEqual(action.toPosition, state.finalPosition),
                     timestamp: action.timestamp
                 } : (isMovable(state.position, action.fromPosition)) ?
                     {
@@ -43,5 +44,19 @@ export const blank = (state={}, action) => {
             }
         default: 
             return state 
+    }
+}
+
+export const status = (state={}, action) => {
+    switch (action.type) {
+        case C.MOVE_FRAGMENT:
+            const correctFs = (action.toCorrectPosition) ? 1 : (action.fromCorrectPosition) ? -1 : 0   
+            return {
+                ...state,
+                moves: state.moves++,
+                correctFragments: state.correctFragments + correctFs
+            }
+        default:
+            return state
     }
 }

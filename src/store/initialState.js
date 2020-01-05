@@ -1,4 +1,9 @@
-import { shuffleFragmentsPositions, getBlankFragment, isMovable } from './utils'
+import { 
+    shuffleFragmentsPositions, 
+    getBlankFragment, 
+    isMovable, 
+    positionsEqual } 
+from './utils'
 
 const rawFragments = [
     {
@@ -131,17 +136,27 @@ const rawFragments = [
     }
 ]
 
-
+/**
+ * (Re-)Initializes the state of the game.
+ */
 export const initializeState = () => {
     const positionedFragments = shuffleFragmentsPositions(rawFragments)
     const blankFragment = getBlankFragment(positionedFragments)
-    return {
-        fragments: positionedFragments
+    const fullFragments = 
+        positionedFragments
             .filter(f => f.id !== blankFragment.id)
             .map(f => ({
                 ...f,
-                movable: isMovable(f.position, blankFragment.position)
-            })),
-        blank: blankFragment
+                movable: isMovable(f.position, blankFragment.position),
+                correct: positionsEqual(f.position, f.finalPosition)
+            }))
+    return {
+        fragments: fullFragments,
+        blank: blankFragment,
+        status: {
+            moves: 0,
+            missclicks: 0,
+            correctFragments: fullFragments.filter(f => f.correct).length
+        }
     }
 }

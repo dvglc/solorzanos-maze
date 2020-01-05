@@ -3,7 +3,7 @@ import {
     combineReducers,
     applyMiddleware
 } from 'redux'
-import { fragments, blank } from './reducers'
+import { fragments, blank, status } from './reducers'
 import { initializeState } from './initialState'
 
 const logger = store => next => action => {
@@ -29,7 +29,7 @@ const stateData = initializeState()
 localStorage['redux-store'] = JSON.stringify(stateData) //TODO make this part of storeFactory() for reshuffling 
 const storeFactory = (initialState=stateData) =>
     applyMiddleware(logger, saver)(createStore)(
-        combineReducers({fragments, blank}),
+        combineReducers({fragments, blank, status}),
         (localStorage['redux-store']) ?
             JSON.parse(localStorage['redux-store']) :
             initialState

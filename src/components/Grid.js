@@ -9,6 +9,11 @@ const Grid = ({store}) => {
     // console.log('Movables are:')
     // store.getState().fragments.filter(f => f.movable).map(f => console.log(f.id + ' at position ' + JSON.stringify(f.position)))
 
+    // this is where we check the status of the game: when all fragments are correctly positioned, a success action is dispatched
+    if (store.getState().status.correctFragments === store.getState().fragments.length) {
+        alert('Game ended!')
+    } 
+    
     return (
         <div className="grid">
             <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 

@@ -5,7 +5,8 @@ const Fragment = ({store, fragment}) => {
 
     const requestMove = e => {
         e.preventDefault()
-        fragment.movable ? store.dispatch(moveFragment(fragment)) : alert('Fragment is not movable!')
+        if (fragment.movable) store.dispatch(moveFragment(fragment)) 
+        else alert('Fragment is not movable!')
     }
 
     let _style = {
@@ -21,9 +22,9 @@ const Fragment = ({store, fragment}) => {
     const image = require('../assets/img/' + fragment.img) 
     // TODO decrease img file size (ideally, < 10000 bytes) for faster loading
 
-    console.log("Building Fragment with id: " + fragment.id + " at position: " 
-        + JSON.stringify(fragment.position) + " with image " + fragment.img 
-        + " at @x=" + fragment.position.col + " and @y=" + fragment.position.row)
+    // console.log("Building Fragment with id: " + fragment.id + " at position: " 
+    //     + JSON.stringify(fragment.position) + " with image " + fragment.img 
+    //     + " at @x=" + fragment.position.col + " and @y=" + fragment.position.row)
 
     return (
         <g className="fragment">

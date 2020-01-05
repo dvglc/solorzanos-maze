@@ -10,14 +10,18 @@ const Fragment = ({store, fragment}) => {
     }
 
     let _style = {
-        fillOpacity: 0
+        fill: 'green',
+        fillOpacity: (fragment.correct) ? 0.25 : 0
     }
 
     const highlight = e => {
         fragment.movable ? e.target.style.fill="blue" : e.target.style.fill="red" 
         e.target.style.fillOpacity = 0.25
     }
-    const lowlight = e => e.target.style.fillOpacity = 0
+    const lowlight = e => {
+        e.target.style.fill = 'green'
+        e.target.style.fillOpacity = (fragment.correct) ? 0.25 : 0
+    } 
     
     const image = require('../assets/img/' + fragment.img) 
     // TODO decrease img file size (ideally, < 10000 bytes) for faster loading

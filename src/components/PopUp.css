@@ -1,0 +1,13 @@
+
+.Popup {
+    padding: 20px;
+    background-color: lightgray;
+    color: black;
+    margin-bottom: 15px;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    bottom: 40%;
+    text-align: center;
+  }

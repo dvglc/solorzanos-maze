@@ -50,5 +50,6 @@ export const enableDevMode = () => ({
  */
 export const winGame = () => ({
     type: C.WIN_GAME,
-    newFragments: getPerfectFragments()
+    newFragments: getPerfectFragments(),
+    timestamp: new Date().toString()
 })

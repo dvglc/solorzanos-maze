@@ -1,14 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import C from '../constants'
 import './Footer.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faFileImage } from '@fortawesome/free-solid-svg-icons'
-import { enableDevMode } from '../actions'
-import { store } from '..'
+import { enableDevMode, winGame } from '../actions'
 
 
-const Footer = () => {
+const Footer = ({store}) => {
 
     let clicks = 0
     const magicClick = () => {
@@ -18,6 +17,14 @@ const Footer = () => {
             store.dispatch(enableDevMode())
         }
     }
+
+    useEffect(() => {
+        // this is where we trigger a success event in case all fragments are correctly positioned
+        if (store.getState().status.correctFragments === store.getState().fragments.length 
+            && store.getState().status.correctFragments % 2 === 1) { // make sure we dispatch only when the game isn't already won
+            store.dispatch(winGame())
+        }
+    })
 
     return (
         <div className="Footer">

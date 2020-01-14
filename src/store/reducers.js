@@ -39,6 +39,10 @@ export const fragments = (state=[], action) => {
             return action.newFragmentsAndBlank.fragments.map(
                 f => fragment(f, action)
             )
+        case C.WIN_GAME:
+            return action.newFragments.map(
+                f => fragment(f, action)
+            )
         default:
             return state
         }
@@ -83,5 +87,10 @@ export const status = (state={}, action) => {
             }
             default:
             return state
+        case C.WIN_GAME:
+            return {
+                ...state,
+                won: true
+            }
     }
 }

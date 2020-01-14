@@ -39,8 +39,6 @@ rect.correctmovable {
     fill:green;
     fill-opacity: 0.25;
     animation: corrchange 1s infinite alternate;
-    
-    
 }
 rect.correctmovable:hover {
     animation: 0;

@@ -19,11 +19,14 @@ const Fragment = ({store, fragment}) => {
     const image = require('../assets/img/' + fragment.img) 
     // TODO decrease img file size (ideally, < 10000 bytes) for faster loading
 
+    const frame = (!store.getState().status.won) ? 
+        <rect className={renderClass} x={fragment.position.col} y={fragment.position.row} width="1" height="1" 
+            onClick={requestMove} /> : null
+
     return (
         <g className="Fragment">
             <image href={image} x={fragment.position.col} y={fragment.position.row} width="1" height="1"/>
-            <rect className={renderClass} x={fragment.position.col} y={fragment.position.row} width="1" height="1" 
-                 onClick={requestMove} />
+            {frame}
         </g>
     )
 }

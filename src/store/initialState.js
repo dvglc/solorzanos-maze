@@ -157,7 +157,8 @@ export const initializeState = () => {
         status: {
             moves: 0,
             misclicks: 0,
-            correctFragments: fullFragments.filter(f => f.correct).length
+            correctFragments: fullFragments.filter(f => f.correct).length,
+            won: fullFragments.filter(f => f.correct).length === fullFragments.length
         }
     }
 }
@@ -179,7 +180,7 @@ export const initializeDevFragmentsAndBlank = () => {
         correct: false
     } 
     const blankFragment = {
-        id: C.BLANK_FRAGMENT_ID,
+        ...rawFragments.filter(f => f.id === C.BLANK_FRAGMENT_ID)[0],
         position: {
             row: 2,
             col: 3
@@ -200,3 +201,16 @@ export const initializeDevFragmentsAndBlank = () => {
         blank: blankFragment
     })
 }
+
+/**
+ * Returns the full set of fragments with perfect (final) positions, to be rendered when the game is won.
+ */
+export const getPerfectFragments = () =>
+     rawFragments.map(f => ({
+         ...f,
+        position: f.finalPosition,
+        movable: false,
+        correct: true
+     }))
+
+

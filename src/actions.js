@@ -1,7 +1,7 @@
 import C from './constants'
 import { store } from './index'
 import { positionsEqual } from './store/utils'
-import { initializeState, initializeDevFragmentsAndBlank } from './store/initialState'
+import { initializeState, initializeDevFragmentsAndBlank, getPerfectFragments } from './store/initialState'
 
 
 /**
@@ -44,3 +44,11 @@ export const enableDevMode = () => ({
     newFragmentsAndBlank: initializeDevFragmentsAndBlank(),
     timestamp: new Date().toString()
 }) 
+
+/**
+ * Triggers a final event when the game is won.
+ */
+export const winGame = () => ({
+    type: C.WIN_GAME,
+    newFragments: getPerfectFragments()
+})

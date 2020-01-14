@@ -158,7 +158,8 @@ export const initializeState = () => {
             moves: 0,
             misclicks: 0,
             correctFragments: fullFragments.filter(f => f.correct).length,
-            won: fullFragments.filter(f => f.correct).length === fullFragments.length
+            won: fullFragments.filter(f => f.correct).length === fullFragments.length,
+            begin: new Date()
         }
     }
 }

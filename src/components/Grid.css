@@ -1,7 +1,6 @@
 .Grid {
     border-style: inset;
 }
-
 rect.none {
     fill-opacity: 0;
     fill: red;
@@ -9,7 +8,6 @@ rect.none {
 }
 rect.none:hover {
     fill-opacity: 0.25;
-    transition: fill-opacity .1s ease-in-out;
 }
 rect.correct {
     fill: green;
@@ -17,40 +15,23 @@ rect.correct {
 }
 rect.correct:hover {
     fill: red;
-    transition: fill .1s ease-in-out;
 }
 rect.movable {
     fill:blue;
     fill-opacity: 0;
-    animation: change 1s infinite alternate;
-}
+} 
 rect.movable:hover {
-    animation: 0;
     fill-opacity: 0.25;
     fill:blue;
 }
-@keyframes change {
-    to {
-      fill: blue;
-      fill-opacity: 0.1;
-    }
-  }
 rect.correctmovable {
     fill:green;
     fill-opacity: 0.25;
-    animation: corrchange 1s infinite alternate;
 }
 rect.correctmovable:hover {
-    animation: 0;
     fill-opacity: 0.25;
     fill:blue;
 }
-@keyframes corrchange {
-    to {
-      fill: blue;
-      fill-opacity: 0.25;
-    }
-  }
 rect.unmovableblink {
     fill: purple;
     fill-opacity: 0.5;

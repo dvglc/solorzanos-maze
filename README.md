@@ -3,7 +3,9 @@
 
 ### The Game
 
-_Solorzano's Maze_ is a sliding puzzle game written in pure JavaScript, based on [React](https://reactjs.org/) and [Redux](https://github.com/reduxjs/redux). It displays an interactive 4x4 puzzle grid, where 15 of the 16 grid cells are filled (randomly, at the beginning) with fragments taken from a digital facsimile of an early modern book (see below), published by the [School of Salamanca research project](http:www.salamanca.school). The player's task is to reorganize the fragments through shifting them repeatedly until the grid, ultimately, displays the "maze" to be found in the original facsimile.
+_Solorzano's Maze_ is a sliding puzzle game written in JavaScript, based on [React](https://reactjs.org/) and [Redux](https://github.com/reduxjs/redux). It displays an interactive 4x4 puzzle grid, where 15 of the 16 grid cells are filled (randomly, at the beginning) with fragments taken from a facsimile of an early modern book (see below) digitized by the [School of Salamanca research project](http:www.salamanca.school). The player's task is to reorganize the fragments through shifting them repeatedly until the grid, ultimately, displays the "maze" to be found in the original facsimile.
+
+<img src="docs/img/example.png" width="500"/>
 
 ### The Facsimile
 
@@ -16,7 +18,7 @@ Clone the repository:
 
 `git clone https://github.com/dvglc/solorzanos-maze.git`
 
-With npm, the dependencies can be installed via
+With npm, the dependencies can be installed in the `solorzanos-maze` directory via
 
 `npm install` 
 
